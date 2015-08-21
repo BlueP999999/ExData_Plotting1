@@ -18,4 +18,7 @@ Plot1<-function(){
     ### Set margin, plot, label axis and title
     par(mar=c(5,5,2,2))
     hist(SUBSET$Global_active_power,xlab="Global Active Power (kilowatts)",ylab="Frequency",main="Global Active Power",col="red")
+
+    dev.copy(png,file="plot1.png")
+    dev.off()
 }
