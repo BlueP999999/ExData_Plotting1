@@ -19,7 +19,10 @@ Plot2<-function(){
     SUBSET$date.and.time<-strptime(
         paste(SUBSET$Date,SUBSET$Time),format="%d/%m/%Y %H:%M:%S")
     
-    plot(SUBSET$date.and.time,SUBSET$Global_active_power,type="l",ylim=c(0,8),xlab="",ylab="Global Active Power (kilowatts)")
+    par(mfrow=c(1,1))
+    LOWER<-min(SUBSET$Global_active_power)
+    UPPER<-max(SUBSET$Global_active_power)
+    plot(SUBSET$date.and.time,SUBSET$Global_active_power,type="l",ylim=c(LOWER,UPPER),xlab="",ylab="Global Active Power (kilowatts)")
 
     dev.copy(png,file="plot2.png")
     dev.off()
